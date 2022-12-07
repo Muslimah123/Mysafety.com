@@ -91,9 +91,11 @@ if(isset($_SESSION["uid"])){
 		<div class="container-login100-form-btn">
 		<div class="wrap-login100-form-btn">
 			<div class="login100-form-bgbtn"></div>
+			<a href="signin_form.php">
 			<button class="login100-form-btn" type="submit">
 				Sign Up
 			</button>
+</a>
 			
 		</div>
 		
