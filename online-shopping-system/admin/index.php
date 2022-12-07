@@ -13,10 +13,15 @@ include "activitity.php"
          <div class="panel-body">
 		<a>
             <?php  //success message
-            if(isset($_POST['success'])) {
-            $success = $_POST["success"];
-            echo "<h1 style='color:#0C0'>Your Product was added successfully &nbsp;&nbsp;  <span class='glyphicon glyphicon-ok'></h1></span>";
-            }
+              if(isset($_POST['success'])) {
+                $success = $_POST["success"];
+                echo "<div class='col-md-12 col-xs-12' id='product_msg'>
+              <div class='alert alert-success'>
+                <a href='#'' class='close' data-dismiss='alert' aria-label='close'>×</a>
+                <b>Product is Added..!</b>
+              </div>
+            </div>";
+                }
             ?></a>
                 </div>
                 <div class="col-md-14">
@@ -150,5 +155,5 @@ include "activitity.php"
         </div>
       </div>
       <?php
-include "footer.php";
-?>
+   include("footer.php");
+   ?>

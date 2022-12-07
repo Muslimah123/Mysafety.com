@@ -1,6 +1,8 @@
+
 <?php
 session_start();
 include "db.php";
+
 if (isset($_SESSION["uid"])) {
 
 	$f_name = $_POST["firstname"];
@@ -8,16 +10,13 @@ if (isset($_SESSION["uid"])) {
 	$address = $_POST['address'];
     $city = $_POST['city'];
     $state = $_POST['state'];
-    $zip= $_POST['zip'];
-    $cardname= $_POST['cardname'];
-    $cardnumber= $_POST['cardNumber'];
     $expdate= $_POST['expdate'];
-    $cvv= $_POST['cvv'];
     $user_id=$_SESSION["uid"];
-    $cardnumberstr=(string)$cardnumber;
     $total_count=$_POST['total_count'];
     $prod_total = $_POST['total_price'];
-    
+    $product_id=$_POST["product_id"];
+   
+                    
     
     $sql0="SELECT order_id from `orders_info`";
     $runquery=mysqli_query($con,$sql0);
@@ -33,11 +32,7 @@ if (isset($_SESSION["uid"])) {
         echo( mysqli_error($con));
     }
 
-	$sql = "INSERT INTO `orders_info` 
-	(`order_id`,`user_id`,`f_name`, `email`,`address`, 
-	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`) 
-	VALUES ($order_id, '$user_id','$f_name','$email', 
-    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv')";
+	$sql = "INSERT INTO `orders_info` (`order_id`,`user_id`, `email`, `expdate`,`total_amt`) VALUES ('$order_id', '$user_id', '$email', '$expdate', '$prod_total')";
 
 
     if(mysqli_query($con,$sql)){
@@ -57,10 +52,12 @@ if (isset($_SESSION["uid"])) {
             $sql1="INSERT INTO `order_products` 
             (`order_pro_id`,`order_id`,`product_id`,`qty`,`amt`) 
             VALUES (NULL, '$order_id','$prod_id','$prod_qty','$sub_total')";
+            mysqli_query($con,"UPDATE products set qty=qty-'$prod_qty' where product_id='$prod_id'")or die("Query 2 is inncorrect..........");
+  
             if(mysqli_query($con,$sql1)){
                 $del_sql="DELETE from cart where user_id=$user_id";
                 if(mysqli_query($con,$del_sql)){
-                    echo"<script>window.location.href='store.php'</script>";
+                    echo"<script>window.location.href='payment_success.php'</script>";
                 }else{
                     echo(mysqli_error($con));
                 }
@@ -87,3 +84,6 @@ if (isset($_SESSION["uid"])) {
 
 
 ?>
+<?php if(isset($_GET['firstname'])): ?>
+        Your name is <?php echo $_GET["firstname"]; ?>
+<?php endif; ?>

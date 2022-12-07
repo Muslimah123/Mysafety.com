@@ -110,6 +110,15 @@ span.price {
 		<div class="row-checkout">
 		<?php
 		if(isset($_SESSION["uid"])){
+			$i=1;
+			$total=0;
+			$total_count=$_POST['total_count'];
+			while( $i<=$total_count) {
+				$amount_ = $_POST['amount_'.$i] ;
+			    $total= $total+$amount_ ;
+				$i++;
+			}
+			
 			$sql = "SELECT * FROM user_info WHERE user_id='$_SESSION[uid]'";
 			$query = mysqli_query($con,$sql);
 			$row=mysqli_fetch_array($query);
@@ -154,14 +163,14 @@ span.price {
 						
 						
 						<label for="cname">Full name</label>
-						<input type="text" id="cname" name="cardname" class="form-control" pattern="^[a-zA-Z ]+$" value="'.$row["first_name"].' '.$row["last_name"].'" required>
+						<input type="text" id="cname" name="cardname" class="form-control" pattern="^[a-zA-Z ]+$" value="'.$row["first_name"].' '.$row["last_name"].'" disabled/ >
 						
 						<div class="form-group" id="card-number-field">
                         <label for="cardNumber">Amount</label>
-                        <input type="text" class="form-control" id="amount" name="cardNumber">
+                        <input type="text" class="form-control" id="total_amt" name="cardNumber" value="'.$total.'" disabled/ >
                     </div>
 						<label for="expdate">Date</label>
-						<input type="date" id="expdate" name="expdate" class="form-control"  placeholder="12/02/2022">
+						<input type="date" id="expdate" name="expdate" class="form-control"  placeholder="12/02/2022" >
 						
 
 						
@@ -169,9 +178,8 @@ span.price {
 					</div>
 					<label><input type="CHECKBOX" name="q" class="roomselect" value="conform"> Shipping address same as billing
 					</label>';
-					$i=1;
-					$total=0;
-					$total_count=$_POST['total_count'];
+					
+				
 					while($i<=$total_count){
 						$item_name_ = $_POST['item_name_'.$i];
 						$amount_ = $_POST['amount_'.$i];
@@ -262,7 +270,7 @@ span.price {
 				</table>
 				<hr>
 				
-				<h3>total<span class='price' style='color:black'><b>$$total</b></span></h3>";
+				<h3>total<span class='price' style='color:black'><b>&#8373;$total</b></span></h3>";
 					
 				}
 				?>
@@ -316,10 +324,12 @@ function payWithPaystack(e) {
   e.preventDefault();
 
   let handler = PaystackPop.setup({
-    key: 'pk_test_3fb908b63dae8deddb0b29715b447f32199e3842', // Replace with your public key
+    key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd', // Replace with your public key
 	email: document.getElementById("email").value,
-    amount: document.getElementById("amount").value,
+    amount: document.getElementById("total_amt").value *100,
     currency: "GHS",
+	expdate: document.getElementById("expdate").value,
+	
    
 
     ref: 'FX'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
@@ -341,14 +351,17 @@ function payWithPaystack(e) {
             //when the user close the payment modal
             alert('Transaction cancelled');
         }  */
-     onClose: function(){
+   /*   onClose: function(){
         windows.location='http://localhost/paystack2/index.php?transaction=cancel';
       alert('Transaction cancelled.');
-    },
+    }, */
+		onClose: function() {
+        alert('Window closed.');
+      },
     callback: function(response){
       let message = 'Payment complete! Reference: ' + response.reference;
-      alert(message);
-      window.location = "http://localhost/paystack2/verify-redirect.php?reference=" + response.reference;
+      
+	  window.location.assign(`payment_success.php`) ;
     }  
   });
 

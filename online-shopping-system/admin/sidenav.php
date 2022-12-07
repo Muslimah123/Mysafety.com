@@ -73,12 +73,32 @@
               <p>Manage User</p>
             </a>
           </li>
-          <li class="nav-item ">
+         <!--  <li class="nav-item ">
             <a class="nav-link" href="profile.php">
               <i class="material-icons">person</i>
-              <p>Profile</p>
+              <p>Settings</p>
             </a>
-          </li>
+          </li> -->
+          <li class="nav-item ">
+                        <a class="nav-link" href="profile.php">
+                            <icons-image _ngcontent-aye-c22="" _nghost-aye-c19=""><i _ngcontent-aye-c19="" class="material-icons icon-image-preview">settings</i></icons-image>
+                            <p>setting</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="inventory.php">
+                            <i class="material-icons">library_books</i>
+                            <p>Inventory</p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../../chat/login.php">
+                            <i class="material-icons">notifications</i>
+                            <p>Discussion</p>
+                        </a>
+                    </li>
           <li class="nav-item ">
             <a class="nav-link" href="logout.php">
               <i class="material-icons">logout</i>

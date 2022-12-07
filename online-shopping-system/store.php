@@ -2,7 +2,7 @@
 include 'header.php';
 ?>
      <script id="jsbin-javascript">
-(function (global) {
+/* (function (global) {
 	if(typeof (global) === "undefined")
 	{
 		throw new Error("window is undefined");
@@ -34,7 +34,7 @@ include 'header.php';
             e.stopPropagation();
         };		
     };
-})(window);
+})(window); */
 </script>
       <div class="main main-raised"> 
         

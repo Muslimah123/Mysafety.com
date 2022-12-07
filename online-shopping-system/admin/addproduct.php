@@ -1,17 +1,19 @@
-  <?php
+
+<?php
 session_start();
 include("../db.php");
-
+ 
 
 if(isset($_POST['btn_save']))
 {
 $product_name=$_POST['product_name'];
 $details=$_POST['details'];
 $price=$_POST['price'];
-$c_price=$_POST['c_price'];
 $product_type=$_POST['product_type'];
 $brand=$_POST['brand'];
 $tags=$_POST['tags'];
+$qty=$_POST['qty'];
+$discount=$_POST['discount'];
 
 //picture coding
 $picture_name=$_FILES['picture']['name'];
@@ -26,7 +28,9 @@ if($picture_type=="image/jpeg" || $picture_type=="image/jpg" || $picture_type=="
 		$pic_name=time()."_".$picture_name;
 		move_uploaded_file($picture_tmp_name,"../product_images/".$pic_name);
 		
-mysqli_query($con,"insert into products (product_cat, product_brand,product_title,product_price, product_desc, product_image,product_keywords) values ('$product_type','$brand','$product_name','$price','$details','$pic_name','$tags')") or die ("query incorrect");
+mysqli_query($con,"insert into products (product_cat, product_brand,product_title,product_price, product_desc, product_image,product_keywords,qty,product_discount) values ('$product_type','$brand','$product_name','$price','$details','$pic_name','$tags','$qty','$discount')") or die ("query incorrect");
+
+
 
  header("location: sumit_form.php?success=1");
 }
@@ -78,7 +82,7 @@ include "topheader.php";
                       </div>
                     </div>
                   </div>
-                 
+                
                   
                 
               </div>
@@ -115,10 +119,24 @@ include "topheader.php";
                       </div>
                     </div>
                   </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Product Quantity</label>
+                        <input type="text" id="quantity" name="qty" required class="form-control" >
+                      </div>
+                    </div>
+                  </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Discount</label>
+                        <input type="text" id="discount" name="discount" required class="form-control" >
+                      </div>
+                    </div>
+                  </div>
                 
               </div>
               <div class="card-footer">
-                  <button type="submit" id="btn_save" name="btn_save" required class="btn btn-fill btn-primary">Update Product</button>
+                  <button type="submit" id="btn_save" name="btn_save" required class="btn btn-fill btn-primary">Add Product</button>
               </div>
             </div>
           </div>

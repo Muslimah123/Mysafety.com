@@ -1,4 +1,4 @@
- <?php
+<?php
 session_start();
 include("../db.php");
 error_reporting(0);
@@ -21,6 +21,7 @@ else
 /*this is delet query*/
 mysqli_query($con,"delete from products where product_id='$product_id'")or die("query is incorrect...");
 }
+
 
 ///pagination
 
@@ -52,20 +53,36 @@ include "topheader.php";
                 <div class="table-responsive ps">
                   <table class="table tablesorter " id="page1">
                     <thead class=" text-primary">
-                      <tr><th>Image</th><th>Name</th><th>Price</th><th>
+                      <tr><th>Image</th>
+                       <th>product_category_id</th>
+                           <th>product_brand_id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                         <th>Discount</th>
+                        <th>
 	<a class=" btn btn-primary" href="addproduct.php">Add New</a></th></tr></thead>
                     <tbody>
                       <?php 
 
-                        $result=mysqli_query($con,"select product_id,product_image, product_title,product_price from products  where  product_cat=2 or product_cat=3 or product_cat=4 Limit $page1,12")or die ("query 1 incorrect.....");
+                        $result=mysqli_query($con,"select product_id,product_cat,product_image,product_brand, product_title,product_price,product_discount from products Limit $page1,12")or die ("query 1 incorrect.....");
 
-                        while(list($product_id,$image,$product_name,$price)=mysqli_fetch_array($result))
+                        while(list($product_id,$product_cat,$image,$product_brand,$product_name,$price,$discount)=mysqli_fetch_array($result))
                         {
-                        echo "<tr><td><img src='../product_images/$image' style='width:50px; height:50px; border:groove #000'></td><td>$product_name</td>
-                        <td>$price</td>
-                        <td>
+                        echo "<tr><td><img src='../product_images/$image' style='width:50px; height:50px; border:groove #000'></td>
+                        <td>$product_cat</td>
+                          <td>$product_brand</td>
 
-                        <a class=' btn btn-success' href='clothes_list.php?product_id=$product_id&action=delete'>Delete</a>
+                        <td>$product_name</td>
+                        <td>$price</td>
+                        <td>$discount</td>
+                        <td>
+                        <a href='edituser.php?product_id=$product_id' type='button' rel='tooltip' title='' class='btn btn-info btn-link btn-sm' data-original-title='Edit User'>
+                                <i class='material-icons'>edit</i>
+                              <div class='ripple-container'></div></a>
+                 
+
+
+                        <a class=' btn btn-success' href='productlist.php?product_id=$product_id&action=delete'>Delete</a>
                         </td></tr>";
                         }
 

@@ -25,11 +25,7 @@
 								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
 								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
 							</ul>
-							<span class="copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script>,  Ngotho Company.<i class="fa fa-heart-o" aria-hidden="true"></i> All <a href="#" target="_blank">Rights Reserved</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</span>
+						
 						</div>
 
 						<div class="col-md-3 col-xs-6">

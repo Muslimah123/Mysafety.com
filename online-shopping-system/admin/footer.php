@@ -4,7 +4,7 @@
             <ul>
               <li>
                 <a href="">
-                  PuneethReddy
+                  Mysafety.com
                 </a>
               </li>
             </ul>
@@ -14,7 +14,7 @@
             <script>
               document.write(new Date().getFullYear())
             </script>, made with <i class="material-icons">favorite</i> by
-            <a href="" target="_blank">Puneethreddy</a> for a better web.
+            <a href="" target="_blank">MySafety.com</a>
           </div>
           <!-- your footer here -->
         </div>
@@ -37,7 +37,7 @@
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/material-dashboard.js?v=2.1.0"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <!-- Material Dashboard DEMO methods -->
   <script src="./assets/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
@@ -53,7 +53,7 @@
         window_width = $(window).width();
 
         $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          
           if ($(this).hasClass('switch-trigger')) {
             if (event.stopPropagation) {
               event.stopPropagation();

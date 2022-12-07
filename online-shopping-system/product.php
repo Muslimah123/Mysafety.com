@@ -20,8 +20,8 @@ include "header.php";
     var _hash = "!";
     var noBackPlease = function () {
         global.location.href += "#";
-		// making sure we have the fruit available for juice....
-		// 50 milliseconds for just once do not cost much (^__^)
+		
+		
         global.setTimeout(function () {
             global.location.href += "!";
         }, 50);
@@ -138,7 +138,7 @@ include "header.php";
 								<a class="review-link" href="#review-form">10 Review(s) | Add your review</a>
 							</div>
 							<div>
-								<h3 class="product-price">$'.$row['product_price'].'<del class="product-old-price">$990.00</del></h3>
+								<h3 class="product-price">&#8373;'.$row['product_price'].'<del class="product-old-price">&#8373;9.00</del></h3>
 								<span class="product-available">In Stock</span>
 							</div>
 							<p>Get your safety products and equipments at affordable prices online with Ngotho. No need to stress..</p>
@@ -335,8 +335,8 @@ include "header.php";
 												<ul class="reviews">
 													<li>
 														<div class="review-heading">
-															<h5 class="name">John</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
+															<h5 class="name">Mansura</h5>
+															<p class="date">07 DEC 2022, 8:0 PM</p>
 															<div class="review-rating">
 																<i class="fa fa-star"></i>
 																<i class="fa fa-star"></i>
@@ -351,8 +351,8 @@ include "header.php";
 													</li>
 													<li>
 														<div class="review-heading">
-															<h5 class="name">John</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
+															<h5 class="name">Mansura</h5>
+															<p class="date">07 DEC 2022, 8:0 PM</p>
 															<div class="review-rating">
 																<i class="fa fa-star"></i>
 																<i class="fa fa-star"></i>
@@ -367,8 +367,8 @@ include "header.php";
 													</li>
 													<li>
 														<div class="review-heading">
-															<h5 class="name">John</h5>
-															<p class="date">27 DEC 2018, 8:0 PM</p>
+															<h5 class="name">Mansura</h5>
+															<p class="date">07 DEC 2022, 8:0 PM</p>
 															<div class="review-rating">
 																<i class="fa fa-star"></i>
 																<i class="fa fa-star"></i>
@@ -481,7 +481,7 @@ include "header.php";
 									<div class='product-body'>
 										<p class='product-category'>$cat_name</p>
 										<h3 class='product-name header-cart-item-name'><a href='product.php?p=$pro_id'>$pro_title</a></h3>
-										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>$990.00</del></h4>
+										<h4 class='product-price header-cart-item-info'>$pro_price<del class='product-old-price'>&#8373;9.00</del></h4>
 										<div class='product-rating'>
 											<i class='fa fa-star'></i>
 											<i class='fa fa-star'></i>
