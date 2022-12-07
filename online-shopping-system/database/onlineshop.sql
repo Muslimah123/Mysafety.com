@@ -38,7 +38,7 @@ DELIMITER ;
 --
 
 CREATE TABLE `admin_info` (
-  `admin_id` int(10) NOT NULL,
+  `admin_id` int(10) NOT NULL AUTO_INCREMENT,
   `admin_name` varchar(100) NOT NULL,
   `admin_email` varchar(300) NOT NULL,
   `admin_password` varchar(300) NOT NULL
@@ -281,7 +281,7 @@ INSERT INTO `sup_info` (`id`, `first_name`, `last_name`, `email`, `password`, `m
 --
 
 CREATE TABLE `user_info` (
-  `user_id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(300) NOT NULL,
@@ -485,8 +485,8 @@ ALTER TABLE `sup_info`
 --
 -- AUTO_INCREMENT for table `user_info`
 --
-ALTER TABLE `user_info`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+-- ALTER TABLE `user_info`
+--   MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `user_info_backup`
