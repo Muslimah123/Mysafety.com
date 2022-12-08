@@ -27,7 +27,7 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getcat` (IN `cid` INT)  SELECT * FROM categories WHERE cat_id=cid$$
+/* CREATE DEFINER=`root`@`localhost` PROCEDURE `getcat` (IN `cid` INT)  SELECT * FROM categories WHERE cat_id=cid$$ */
 
 DELIMITER ;
 
@@ -281,7 +281,7 @@ INSERT INTO `sup_info` (`id`, `first_name`, `last_name`, `email`, `password`, `m
 --
 
 CREATE TABLE `user_info` (
-  `user_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(300) NOT NULL,
@@ -486,7 +486,7 @@ ALTER TABLE `sup_info`
 -- AUTO_INCREMENT for table `user_info`
 --
 -- ALTER TABLE `user_info`
---   MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT
 
 --
 -- AUTO_INCREMENT for table `user_info_backup`

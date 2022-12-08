@@ -13,7 +13,7 @@ $errors = array();
 $reg_date = date("Y/m/d");
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'onlineshop');
+$db = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b15aea1f32da82', '9f2a3aae', 'heroku_8a6e96110881af4');
 
 
 // REGISTER USER
